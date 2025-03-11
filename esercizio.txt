@@ -1,0 +1,26 @@
+Modellare con delle apposite classi il seguente problema: un Tutor gestisce una lista di studenti. Del tutor si vuole conoscere il nome, il cognome, il codice fiscale e la materia che insegna.
+Degli studenti si vuole conoscere un codice, il nome, il cognome e la data di nascita (stringa di forma gg/mm/aaaa).
+Il codice deve essere un numero auto-incrementante che parte da 1 quindi:
+- il primo studente ha codice 1
+- il secondo studente ha codice 2
+- e così via
+Ogni studente deve avere un codice diverso.
+
+Metodi del tutor:
+- costruttore
+- un metodo che ottiene il numero di studenti che lui gestisce
+- aggiungere uno studente: restituisce true se aggiunge uno studente che NON è presente già. Altrimenti restituisce false.
+- rimuovere uno studente: prende l'indice dello studente da restituire (l'indice deve partire da 1) e restituisce true se l'eliminazione va a buon fine. Se l'indice non è valido (indice 0 oppure indice che non esiste) allora restituisce false. 
+- un metodo che ottiene il numero degli studenti il cui cognome inizia con la stringa "nap" oppure "Nap"
+- un metodo che ottiene il numero degli studenti che, all'interno del proprio nome, contengono la stringa "al"
+- un metodo che restituisce tutti gli studenti che sono nati a dicembre (deep copy). Utilizzare un apposito metodo della classe String (può essere risolto in diversi modi).
+- toString di questa forma: "Tutor <CF> di <MATERIA> gestisce <NUM> studenti"
+
+Metodi di un singolo studente:
+- costruttore
+- un metodo di questa forma: "<ID> <NOME> <COGNOME> -- Data di nascita: <GG/MM/AAAA>
+- override del metodo equals() per vedere se due studenti sono uguali: essi sono uguali se hanno lo stesso codice.
+
+Metodo main:
+testare il corretto funzionamento di tutto.
+Per semplicità si utilizzerà un solo tutor.
