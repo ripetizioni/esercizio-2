@@ -19,7 +19,6 @@ Metodi del tutor:
 Metodi di un singolo studente:
 - costruttore
 - un metodo di questa forma: "<ID> <NOME> <COGNOME> -- Data di nascita: <GG/MM/AAAA>
-- override del metodo equals() per vedere se due studenti sono uguali: essi sono uguali se hanno lo stesso codice.
 
 Metodo main:
 testare il corretto funzionamento di tutto.
