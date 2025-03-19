@@ -4,6 +4,7 @@ import com.example.Studente;
 import java.util.ArrayList;
 
 public class Tutor {
+
     private String nome;
     private String cognome;
     private String codiceFiscale;
@@ -15,42 +16,64 @@ public class Tutor {
         this.codiceFiscale = codiceFiscale;
         this.studenti = new ArrayList<Studente>();
     }
-    
-    public boolean rimuoviStudente(int indice){
-        if(indice <= 0 || indice > studenti.size()){
+
+    public boolean aggiungiStudente(Studente s) {
+        if (isPresente(s)) {
+            System.out.println("studente gia presente");
+            return false;
+        } else {
+            studenti.add(s);
+            return true;
+        }
+    }
+
+    public boolean isPresente(Studente s) {
+        boolean presente = false;
+        for (int i = 0; i < studenti.size(); i++) {
+            if (studenti.get(i).getMatricola() == s.getMatricola()) {
+                presente = true;
+            }
+        }
+        return presente;
+    }
+
+    public boolean rimuoviStudente(int indice) {
+        if (indice <= 0 || indice > studenti.size()) {
             return false;
         }
         studenti.remove(indice);
         return true;
     }
 
-    public int contaCognome(){
-        int contatore=0;
-        for(int i=0; i<studenti.size();i++){
-            if (studenti.get(i).getCognome().startsWith("nap")||studenti.get(i).getCognome().startsWith("Nap") ) {
+    public int contaCognome() {
+        int contatore = 0;
+        for (int i = 0; i < studenti.size(); i++) {
+            if (studenti.get(i).getCognome().startsWith("nap") || studenti.get(i).getCognome().startsWith("Nap")) {
                 contatore++;
             }
         }
         return contatore;
     }
 
-    public ArrayList<Studente> getDicembre(){
+    public ArrayList<Studente> getDicembre() {
         ArrayList<Studente> studentiDicembre = new ArrayList<Studente>();
 
-        for(int i=0; i<studenti.size(); i++){
-            if(studenti.get(i).getDataDiNascita().charAt(3)=='1' && studenti.get(i).getDataDiNascita().charAt(4)=='2'){
+        for (int i = 0; i < studenti.size(); i++) {
+            if (studenti.get(i).getDataDiNascita().charAt(3) == '1'
+                    && studenti.get(i).getDataDiNascita().charAt(4) == '2') {
                 Studente s1;
-                s1=new Studente(studenti.get(i).getNome(),studenti.get(i).getCognome(),studenti.get(i).getDataDiNascita());
+                s1 = new Studente(studenti.get(i).getNome(), studenti.get(i).getCognome(),
+                        studenti.get(i).getDataDiNascita());
                 studentiDicembre.add(s1);
             }
         }
         return studentiDicembre;
     }
 
-    public int contaNome(){
-        int contatore=0;
-        for(int i=0; i<studenti.size();i++){
-            if (studenti.get(i).getNome().contains ("al") ) {
+    public int contaNome() {
+        int contatore = 0;
+        for (int i = 0; i < studenti.size(); i++) {
+            if (studenti.get(i).getNome().contains("al")) {
                 contatore++;
             }
         }
@@ -81,14 +104,17 @@ public class Tutor {
         this.codiceFiscale = codiceFiscale;
     }
 
-    public int numeroStudenti(){
+    public int numeroStudenti() {
         return studenti.size();
     }
 
-    @Override
+    
     public String toString() {
-        return "Nome: " + nome + " Cognome: " + cognome + " Codice Fiscale: " + codiceFiscale;
+            return "Nome: " + nome + " Cognome: " + cognome + " Codice Fiscale: " + codiceFiscale;
+        }
+
+    public ArrayList<Studente> getStudenti() {
+        return studenti;
     }
 
-    
 }
